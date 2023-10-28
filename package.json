@@ -1,0 +1,29 @@
+{
+  "name": "transitions",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1",
+    "analytics": "vercel/analytics",
+    "lucide-react": "^0.290.0",
+    "next": "14.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3"
+  }
+}

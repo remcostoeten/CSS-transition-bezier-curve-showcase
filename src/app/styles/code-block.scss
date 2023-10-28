@@ -1,0 +1,205 @@
+
+//---------------------------
+/* VARIABLES */
+//---------------------------
+
+$inter-fontstack: 'Inter UI', Inter UI, "Inter",
+		Inter, 'inter-ui', inter;
+$system-fontstack: system-ui,-apple-system,
+		BlinkMacSystemFont,"Segoe UI","Roboto",
+		"Ubuntu","Cantarell","Noto Sans",sans-serif,
+		"Apple Color Emoji","Segoe UI Emoji",
+		"Segoe UI Symbol","Noto Color Emoji";
+/* $main-fontstack: "Inter UI","Inter",Inter,Inter UI; */
+/* $font-family: $main-fontstack,$system-fontstack !default; */
+
+code,kbd,samp,pre {
+  font-family:
+    /* macOS 10.10+ */ "Menlo",
+    /* Windows 6+ */ "Consolas",
+    /* Android 4+ */ "Roboto Mono",
+    /* Ubuntu 10.10+ */ "Ubuntu Monospace",
+    /* KDE Plasma 5+ */ "Noto Mono",
+    /* KDE Plasma 4+ */ "Oxygen Mono",
+    /* Linux/OpenOffice fallback */ "Liberation Mono",
+    /* fallback */ monospace,
+    /* macOS emoji */ "Apple Color Emoji",
+    /* Windows emoji */ "Segoe UI Emoji",
+    /* Windows emoji */ "Segoe UI Symbol",
+    /* Linux emoji */ "Noto Color Emoji";
+}
+
+
+$font-family: $system-fontstack !default;
+$main-fontstack: $inter-fontstack,$system-fontstack;
+//Basic stylings
+$br: .25rem !default;
+$xs-pad: .25rem !default;
+$sm-pad: .5rem !default;
+$md-pad: 1rem !default;
+$lg-pad: 1.25rem !default;
+$xlg-pad: 4rem !default;
+$trans: 0.3s !default;
+
+//Breakpoints
+$small-breakpoint: 400px !default;
+$large-breakpoint: 768px !default;
+$sm-brkpoint: 400px !default;
+$lg-brkpoint: 768px !default;
+
+
+//---------------------------
+/* LAYOUT AND UTILS */
+//---------------------------
+%container {
+	width: 90%;
+	max-width: 468px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 65ch;
+	/* padding: 2em 0; */
+}
+*,*::before,*::after {
+	box-sizing: border-box !important;
+}
+.container,
+body>header:first-of-type>*,
+body>main>* {@extend %container;}
+body>footer:last-of-type {
+	background-color: #fff;
+	width: 100vw;
+	padding: 2rem 0;
+	margin: 0;
+	text-align: center;
+	line-height: 1;
+	p {
+		font-size: small;
+		text-align: center;
+		margin: 0 auto !important;
+		line-height: 1;
+		padding: 0;
+		color: gray;
+		font-weight: 500;
+		vertical-align: middle;
+	}
+}
+body>header:first-of-type {
+	width: 100vw;
+	padding: 2rem 0;
+	background-color: ghostwhite;
+	background-color: #fff;
+	color: rgba(#F8F8F2,0.8);
+}
+
+//---------------------------
+/* BASE */
+//---------------------------
+:root {
+	font-size: 19px;
+}
+
+//---------------------------
+/* Typography */
+//---------------------------
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+	margin: .25rem auto .75rem;
+	width: 100%;
+	display: block;
+	small {
+		font-size: smaller;
+		line-height: 1;
+		margin: .25rem auto .75rem;
+		width: 100%;
+		display: block;
+		font-weight: 500;
+	}
+}
+p {
+	line-height: 1.5;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	&:last-of-type, &:last-child, & + p {
+		margin-bottom: 2rem;
+	}
+}
+em {
+	samp,code {
+		font-style: normal;
+	}
+}
+//---------------------------
+/* Layout */
+//---------------------------
+section {
+	padding: .5rem 0;
+	margin-bottom: 1rem;
+}
+main {
+	padding: 1rem 0;
+	flex-grow: 1;
+}
+
+//---------------------------
+/* FIXED WIDTH ELEMENTS */
+//---------------------------
+samp {
+	font-size: 0.75rem !important;
+	line-height: 1 !important;
+	font-weight: 500 !important;
+	background: transparent;
+}
+pre,code,samp {
+	border-radius: 6px !important;
+	background: transparent;
+	font-family: "FiraCode", FiraCode, 
+		"Firacode", Firacode, "firacode", 
+		firacode, monospace !important;
+}
+pre,code {
+	border-radius: .75rem !important;
+	font-size: small !important;
+	line-height: 1.75 !important;
+	background: transparent;
+}
+pre[class*="language"] {
+	padding: 1.5rem !important;
+	padding-top: 1rem !important;
+	padding-bottom: 1.5rem !important;
+	line-height: 2.25 !important;
+	background-color: #08062d;
+	code {
+		background: transparent;
+	}
+}
+
+ul,ol {
+	padding: 0 0 1rem 0;
+	margin: 0 auto ;
+	list-style-position: inside;
+	li {
+		padding: 0;
+		
+		line-height: 1.5;
+		margin: 0.25rem auto;
+	}
+	margin-bottom: 2rem !important;
+}
+h4 {
+	margin-top: 4rem !important;
+}
+form {
+	
+	margin-bottom: 2rem !important;
+}
+
+
+
+mark {
+	padding: 6px !important;
+	border-radius: 6px !important;
+	line-height: 1.5;
+	margin-bottom: 0.25rem !important;
+	display: inline-block;
+	background-color: rgba(yellow, 0.5);
+}
