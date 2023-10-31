@@ -1,4 +1,3 @@
-import "@/app/styles/globals.scss"
 import { Metadata } from "next"
 import { siteConfig } from "../../config/site"
 import { Inter, Lexend_Deca, Manrope } from 'next/font/google';
@@ -7,7 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 const inter = Inter({ subsets: ['latin'] });
 import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/react';
-
+import '@/styles/globals.scss';
 export const metadata = {
   title: {
     default: siteConfig.name,

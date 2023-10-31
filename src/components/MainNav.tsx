@@ -35,7 +35,9 @@ export function MainNav({ items }: MainNavProps) {
                 </Link>
               )
           )}
-          </nav>
+          <Link href="/framer-motion" className="flex items-center space-x-2">
+            <span className="inline-block font-bold">Framer motion visualizer.</span></Link>
+        </nav>
       ) : null}
     </div>
   )
