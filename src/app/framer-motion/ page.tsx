@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 
 const AnimationDemo: React.FC = () => {
   const [boxes, setBoxes] = useState<Array<{ stiffness: number; xValue: number }>>([
@@ -70,12 +68,12 @@ const AnimationDemo: React.FC = () => {
   };
 
   return (
-    <div className="w-screen h-screen p-16 grid place-items-center bg-violet-400 border-white border-4">
+    <div className="w-screen h-screen p-16 grid text-white place-items-center">
       <h1 className="text-4xl font-bold mb-4">Framer Motion Animation Demo</h1>
       <div className="flex flex-col gap-2">
         <div className="slider-container">
-          <Label htmlFor="duration">Duration:</Label>
-          <Input
+          <label htmlFor="duration">Duration:</label>
+          <input
             type="range"
             min="0.1"
             max="5"
@@ -108,7 +106,7 @@ const AnimationDemo: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-        {[1, 2, 3, 4, 5].map((key) => (
+        {[1].map((key) => (
           <div key={key} className="box-container">
             <motion.div
               className="box bg-green-500"
@@ -118,8 +116,8 @@ const AnimationDemo: React.FC = () => {
               animate={selectedExample === null || selectedExample === key ? 'animate' : 'initial'}
             ></motion.div>
             <div className="slider-container">
-              <Label htmlFor={`stiffness-slider-${key}`}>Stiffness {key}:</Label>
-              <Input
+              <label htmlFor={`stiffness-slider-${key}`}>Stiffness {key}:</label>
+              <input
                 type="range"
                 min="1"
                 max="1000"
