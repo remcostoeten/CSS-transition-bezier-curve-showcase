@@ -36,7 +36,6 @@ export function SiteHeader() {
                 }
               )}
 
-              >
               {link.name}
 
               {link.name === activeSection && (
