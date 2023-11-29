@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.scss';
+import ActiveSectionContext from "../../ActiveSectionContext";
 export const metadata = {
   title: {
     default: siteConfig.name,
@@ -72,19 +73,21 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body className="h-max min-h-screen dark:[#09090B] dark:text-zinc-300 font-sans antialiased inter">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-          </ThemeProvider>
-          <Toaster />
-          <Analytics/>
-        </body>
-      </html >
+      <ActiveSectionContext >
+        <html lang="en" suppressHydrationWarning>
+          <head />
+          <body className="h-max min-h-screen dark:[#09090B] dark:text-zinc-300 font-sans antialiased inter">
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+              </div>
+            </ThemeProvider>
+            <Toaster />
+            <Analytics />
+          </body>
+        </html >
+      </ActiveSectionContext >
     </>
   )
 }

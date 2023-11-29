@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import EasingExample from '@/components/effects/Easing';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 
 const AnimationDemo: React.FC = () => {
   const [boxes, setBoxes] = useState<Array<{ stiffness: number; xValue: number }>>([
@@ -68,83 +69,82 @@ const AnimationDemo: React.FC = () => {
   };
 
   return (
-    <div className="w-screen h-screen p-16 grid text-white place-items-center">
-      <h1 className="text-4xl font-bold mb-4">Framer Motion Animation Demo</h1>
-      <div className="flex flex-col gap-2">
-        <div className="slider-container">
-          <label htmlFor="duration">Duration:</label>
-          <input
-            type="range"
-            min="0.1"
-            max="5"
-            step="0.1"
-            id="duration"
-            value={duration}
-            onInput={handleDurationChange}
-          />
-          <span>{duration}</span>
-        </div>
-      </div>
-      <div className="box-container mt-8">
-        <motion.div
-          className="container"
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-        >
-          {[1, 2, 3].map((key) => (
-            <motion.div
-              key={key}
-              className="item cursor-pointer"
-              variants={itemVariants}
-              onClick={() => handleExampleClick(key)}
-            >
-              <motion.div className="circle bg-blue-500" variants={circleVariants} />
-              <motion.div className="text text-white" variants={textVariants}>
-                Example {key}
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-        {[1].map((key) => (
-          <div key={key} className="box-container">
-            <motion.div
-              className="box bg-green-500"
-              // @ts-ignore
-              variants={boxVariants(boxes[key - 1].stiffness, boxes[key - 1].xValue)}
-              initial="initial"
-              animate={selectedExample === null || selectedExample === key ? 'animate' : 'initial'}
-            ></motion.div>
-            <div className="slider-container">
-              <label htmlFor={`stiffness-slider-${key}`}>Stiffness {key}:</label>
-              <input
-                type="range"
-                min="1"
-                max="1000"
-                step="1"
-                id={`stiffness-slider-${key}`}
-                value={boxes[key - 1].stiffness}
-                onInput={(e) => handleStiffnessChange(key - 1, Number((e.target as HTMLInputElement).value))}
-              />
-              <span>{boxes[key - 1].stiffness}</span>
-            </div>
-            <div className="slider-container">
-              <label htmlFor={`xValue-slider-${key}`}>X Value {key}:</label>
-              <input
-                type="range"
-                min="1"
-                max="500"
-                step="1"
-                id={`xValue-slider-${key}`}
-                value={boxes[key - 1].xValue}
-                onInput={(e) => handleXValueChange(key - 1, Number((e.target as HTMLInputElement).value))}
-              />
-              <span>{boxes[key - 1].xValue}</span>
-            </div>
+    <><div className='flex gap-4'><div className="w-6/12 h-screen p-16 grid text-white place-items-center">
+      <EasingExample />
+    </div><div className="w-6/12 h-screen p-16 grid text-white place-items-center">
+        <h1 className="text-4xl font-bold mb-4">Framer Motion Animation Demo</h1>
+        <div className="flex flex-col gap-2">
+          <div className="slider-container">
+            <label htmlFor="duration">Duration:</label>
+            <input
+              type="range"
+              min="0.1"
+              max="5"
+              step="0.1"
+              id="duration"
+              value={duration}
+              onInput={handleDurationChange} />
+            <span>{duration}</span>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+        <div className="box-container mt-8">
+          <motion.div
+            className="container"
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+          >
+            {[1, 2, 3].map((key) => (
+              <motion.div
+                key={key}
+                className="item cursor-pointer"
+                variants={itemVariants}
+                onClick={() => handleExampleClick(key)}
+              >
+                <motion.div className="circle bg-blue-500" variants={circleVariants} />
+                <motion.div className="text text-white" variants={textVariants}>
+                  Example {key}
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+          {[1].map((key) => (
+            <div key={key} className="box-container">
+              <motion.div
+                className="box bg-green-500"
+                // @ts-ignore
+                variants={boxVariants(boxes[key - 1].stiffness, boxes[key - 1].xValue)}
+                initial="initial"
+                animate={selectedExample === null || selectedExample === key ? 'animate' : 'initial'}
+              ></motion.div>
+              <div className="slider-container">
+                <label htmlFor={`stiffness-slider-${key}`}>Stiffness {key}:</label>
+                <input
+                  type="range"
+                  min="1"
+                  max="1000"
+                  step="1"
+                  id={`stiffness-slider-${key}`}
+                  value={boxes[key - 1].stiffness}
+                  onInput={(e) => handleStiffnessChange(key - 1, Number((e.target as HTMLInputElement).value))} />
+                <span>{boxes[key - 1].stiffness}</span>
+              </div>
+              <div className="slider-container">
+                <label htmlFor={`xValue-slider-${key}`}>X Value {key}:</label>
+                <input
+                  type="range"
+                  min="1"
+                  max="500"
+                  step="1"
+                  id={`xValue-slider-${key}`}
+                  value={boxes[key - 1].xValue}
+                  onInput={(e) => handleXValueChange(key - 1, Number((e.target as HTMLInputElement).value))} />
+                <span>{boxes[key - 1].xValue}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div></div></>
   );
 };
 
