@@ -2,7 +2,6 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { ReadMore } from '../core/buttons/Buttons';
 
 const easingStyles: Record<string, string> = {
     '--ease-in-sine': 'cubic-bezier(0.47, 0, 0.745, 0.715)',
@@ -39,14 +38,14 @@ const handleCopy = (value: string) => {
 };
 
 
-const EasingExample: React.FC = () => {
+const Eaze: React.FC = () => {
     const [animationActive, setAnimationActive] = useState(false);
 
     return (
         <div className="p[40px] bg-[#0E1112] p-4 text-cream easing-demo">
-            <ReadMore onClick={() => setAnimationActive(!animationActive)}>
+            <button onClick={() => setAnimationActive(!animationActive)}>
                 {animationActive ? 'Stop Animation' : 'Start Animation'}
-            </ReadMore>
+            </button>
             <div className="flex flex-col w-max animation-container">
                 {Object.entries(easingStyles).map(([propertyName, easingValue]) => (
                     <div className='flex gap-1'><span className='text-underline p-4' onClick={() => handleCopy(easingValue)}>Copy</span><div
@@ -65,4 +64,4 @@ const EasingExample: React.FC = () => {
     );
 };
 
-export default EasingExample;
+export default Eaze;
